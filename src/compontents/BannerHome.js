@@ -1,11 +1,35 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
+import { IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowBack } from "react-icons/io";
 
 const BannerHome = () => {
 
     const bannerData = useSelector(state=>state.movieData.bannerData);
     const imageURL = useSelector(state=>state.movieData.imageURL)
-    console.log(bannerData)
+   const [currentImage,setcurrentImage]= useState(0)
+   const handlePre =()=>{
+    if(currentImage>0){
+      setcurrentImage(next=>next-1);
+    }
+   }
+   const handleNext =()=>{
+    if(currentImage<bannerData.length-1){
+      setcurrentImage(pre=>pre+1);
+    }
+   }
+
+   useEffect(()=>{
+    const interval =setInterval(()=>{
+      if(currentImage<bannerData.length-1){
+        handleNext();
+      }
+      else{
+        setcurrentImage(0);
+      }
+    },5000)
+    return ()=>{clearInterval(interval)}
+   },[bannerData ,imageURL])
 
   return (
     <section className='w-full h-full'>
@@ -13,14 +37,21 @@ const BannerHome = () => {
     {
       bannerData.map((data,index)=>{
         return(
-          <div className='min-w-full min-h-[450px] lg:min-h-full overflow-hidden relative '>
+          <div key={data.id+"bannerHome"+index} className='min-w-full min-h-[450px] lg:min-h-full transition-all overflow-hidden relative group ' style={{transform :`translateX(-${currentImage * 100}%)`}}>
             <div className='w-full h-full'>
             <img
             src={imageURL+data.backdrop_path}
             className='h-full w-full object-cover'
             />
             </div>
-
+             <div className='absolute top-0 w-full h-full hidden items-center justify-between px-4 group-hover:lg:flex'>
+              <button onClick={handlePre} className='bg-white p-1 rounded-full text-xl z-10 text-black'>
+                  <IoIosArrowBack/>
+              </button>
+              <button onClick={handleNext} className='bg-white p-1 rounded-full text-xl z-10 text-black'>
+                  <IoIosArrowForward/>
+              </button>
+             </div>
             <div className='absolute top-0 w-full h-full bg-gradient-to-t from-neutral-900 to-transparent'>
             </div>
 
