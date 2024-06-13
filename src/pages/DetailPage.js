@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import useFatchData from "../Hooks/useFatchData";
 import useFatch from "../Hooks/useFatch"
@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import moment from "moment";
 import Divider from "../compontents/Divider";
 import HorizontalScroll from "../compontents/HorizontalScroll"
+import VideoPlay from "../compontents/VideoPlay";
 
 const DetailPage = () => {
   const params = useParams()
@@ -16,6 +17,13 @@ const DetailPage = () => {
   const writer =castData?.crew?.filter(el =>el?.job === "Writer")?.map(el=>el?.name)?.join(", ")
   const {data : similarData} = useFatch(`/${params?.explore}/${params?.id}/similar`)
   const {data : recommendationData} = useFatch(`/${params?.explore}/${params?.id}/recommendations`)
+  const [playVideo,setplayVideo]=useState(false)
+  const [playVideoId,setplayVideoId]=useState("")
+
+  const handlePlayVideo =(data)=>{
+    setplayVideoId(data)
+    setplayVideo(true)
+  }
   console.log("data", data);
   console.log("starcast", castData);
   console.log("writer",writer)
@@ -38,6 +46,7 @@ const DetailPage = () => {
               src={imageURL + data?.poster_path}
               className="h-80 w-60 object-cover rounded"
             />
+            <button onClick={()=>handlePlayVideo(data)} className="mt-3 w-full py-2 px-4 text-center bg-white text-black rounded-sm font-bold text-lg hover:bg-gradient-to-l from-red-500 to-orange-500 hover:scale-105 transition-all">Play Now</button>
           </div>
 
           <div>
@@ -113,6 +122,16 @@ const DetailPage = () => {
           <HorizontalScroll data={similarData} heading={"Similar "+params?.explore } media_type={params?.explore}/>
         </div>
         <HorizontalScroll data={recommendationData} heading={"recommendation "+params?.explore } media_type={params?.explore}/>
+        
+ 
+         {
+          playVideo && (
+            <VideoPlay data={playVideoId} close={()=>{
+              setplayVideo(false)}} media_type={params?.explore}/>
+          )
+         }
+
+
     </div>
   );
 };
