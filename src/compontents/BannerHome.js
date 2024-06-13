@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowBack } from "react-icons/io";
+import { Link } from 'react-router-dom';
 
 const BannerHome = () => {
 
@@ -68,9 +69,9 @@ const BannerHome = () => {
                   View:{(data.popularity).toFixed(0)}
                 </p>
               </div>
-              <button className='bg-white px-4 py-2 text-black font-bold rounded mt-4 hover:bg-gradient-to-l from-red-700 to-orange-500 shadow-md transition-all hover:scale-100'>
+              <Link to={"/"+data?.media_type+"/"+data?.id} className='bg-white px-4 py-2 text-black font-bold rounded mt-4 hover:bg-gradient-to-l from-red-700 to-orange-500 shadow-md transition-all hover:scale-100'>
                   PLAY NOW
-                </button>
+                </Link>
             </div>
             </div>
            
