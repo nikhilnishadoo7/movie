@@ -19,7 +19,7 @@ export const navigator =[
 export const mobilenavigation=[
     {
         label:'Home',
-        href:'home',
+        href:'/',
         icons:<IoMdHome/>
     },
     ...navigator,
