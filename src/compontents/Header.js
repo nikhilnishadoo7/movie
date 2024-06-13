@@ -3,7 +3,7 @@ import logo from '../assets/logo.png'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import usericon from '../assets/user.png'
 import { IoSearch } from "react-icons/io5";
-import navigator from "../contants/Navigation"
+import {navigator} from "../contants/Navigation"
 
 const Header = () => {
 
@@ -31,12 +31,12 @@ const Header = () => {
                 width={120}
                 />
             </Link>
-            <nav className='hiddem lg: flex items-center gap-1 ml-5'>
+            <nav className='hidden lg:flex items-center gap-1 ml-5'>
                 {
                     navigator.map((nav,index)=>{
                         return(
                             <div>
-                                <NavLink key={nav.label} to={nav.href} className={({isActive})=>'px-3 hover:text-neutral-100'}>
+                                <NavLink key={nav.label+"header"+index} to={nav.href} className={({isActive})=>`px-2 hover:text-neutral-100 ${isActive && "text-neutral-100"}`}>
                                     {nav.label}
                                 </NavLink>
                             </div>

@@ -17,10 +17,10 @@ const Home = () => {
       <BannerData/>
 
   <HorizontalScroll data={trendingData} heading={"Trending"} trending={true}/>
-  <HorizontalScroll data={nowplaying} heading={"Now Play"}/>
-  <HorizontalScroll data={TopRated} heading={"Top Rated"}/>
-  <HorizontalScroll data={popularShowData} heading={"Popular Tv Show"}/>
-  <HorizontalScroll data={OnTheAir} heading={"On The Air"}/>
+  <HorizontalScroll data={nowplaying} heading={"Now Play"} media_type={"movie"}/>
+  <HorizontalScroll data={TopRated} heading={"Top Rated"} media_type={"movie"}/>
+  <HorizontalScroll data={popularShowData} heading={"Popular Tv Show"} media_type={"tv"}/>
+  <HorizontalScroll data={OnTheAir} heading={"On The Air"} media_type={"tv"}/>
       </div>
   )
 }

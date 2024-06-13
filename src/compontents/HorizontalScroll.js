@@ -3,7 +3,7 @@ import Cards from './Cards'
 import { IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowBack } from "react-icons/io";
 
-const HorizontalScroll = ({data=[],heading,trending}) => {
+const HorizontalScroll = ({data=[],heading,trending,media_type}) => {
  const containerRef =useRef()
  const HandleNext=()=>{
     containerRef.current.scrollLeft += 300
@@ -16,11 +16,11 @@ const HorizontalScroll = ({data=[],heading,trending}) => {
     <h2 className='text-xl lg:text-2xl font-bold mb-2 text-white'>{heading}</h2>
     <div className='relative'>
 
-    <div ref={containerRef} className='grid grid-cols-[repeat(auto-fit,230px)] gap-7 grid-flow-col overflow-x-scroll overflow-hidden z-10  relative scroll-smooth transition-all'>
+    <div ref={containerRef} className='grid grid-cols-[repeat(auto-fit,230px)] gap-7 grid-flow-col overflow-x-scroll overflow-hidden z-10  relative scroll-smooth transition-all scrolbar-none'>
 {
     data.map((data,index)=>{
       return(
-        <Cards key={data.id} data={data} index={index+1} trending={trending}/>
+        <Cards key={data.id} data={data} index={index+1} trending={trending} media_type={media_type}/>
       )
     })
   }

@@ -41,7 +41,7 @@ function App() {
   return (
    <main className='pb-14 lg:pb-0'>
     <Header/>
-  <div className=''>
+  <div className='min-h-[70vh'>
   <Outlet/>
   </div>
     <Footer/>
@@ -53,4 +53,4 @@ function App() {
 export default App;
 
 
-//1:22:42 
+//4:15:37

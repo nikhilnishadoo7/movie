@@ -17,7 +17,7 @@ const fetchData = async()=>{
 }
 useEffect(()=>{
     fetchData()
-},[])
+},[endpoint])
 return {data,loading}
 }
 export default useFatch
