@@ -9,19 +9,19 @@ function Register() {
         <input
           type="text"
           placeholder="Username"
-          className="w-full border p-2 mb-3 rounded"
+          className="w-full border p-2 mb-3 rounded text-black font-bold outline-none"
         />
 
         <input
           type="email"
           placeholder="Email"
-          className="w-full border p-2 mb-3 rounded"
+          className="w-full border p-2 mb-3 rounded text-black font-bold outline-none"
         />
 
         <input
           type="password"
           placeholder="Password"
-          className="w-full border p-2 mb-4 rounded"
+          className="w-full border p-2 mb-4 rounded text-black font-bold outline-none"
         />
 
         <button className="w-full bg-blue-600 text-white py-2 rounded hover:bg-green-700">
