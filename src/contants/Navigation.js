@@ -14,7 +14,8 @@ export const navigator =[
         label :'Movie',
         href :'movie',
         icons:<BiCameraMovie/>
-    }
+    },
+   
 ]
 export const mobilenavigation=[
     {

@@ -4,6 +4,8 @@ import App from "../App";
 import Explore from "../pages/Explore";
 import DetailPage from "../pages/DetailPage";
 import SearchPage from "../pages/SearchPage";
+import Login from "../pages/Login";
+import Register from "../pages/Register";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +23,14 @@ const router = createBrowserRouter([
       {
         path:':explore/:id',
         element:<DetailPage/>
+      },
+      {
+        path:'login',
+        element:<Login/>
+      },
+      {
+        path:'register',
+        element:<Register/>
       },
       {
         path : "search",

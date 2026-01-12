@@ -59,14 +59,13 @@ const Header = () => {
               </button>
                     
                 </form>
-            <div className='w-8 h-8 rounded-full overflow-hidden cursor-pointer active:scale-50 transtion-all'>
-                <img
-               src={usericon}
-               alt='user'
-               className='w-full h-full'
-               />
-
-            </div>
+           <button
+      onClick={() => navigate("/login")}
+      className="w-8 h-8 rounded-full overflow-hidden cursor-pointer 
+                 transition-all active:scale-90"
+    >
+      <img src={usericon} alt="user" className="w-full h-full object-cover" />
+    </button>
             </div>
 
         </div>
